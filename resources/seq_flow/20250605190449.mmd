@@ -1,0 +1,26 @@
+
+sequenceDiagram
+    participant App
+    participant TeamMemberList
+    participant TeamMemberCard
+    participant FeedbackList
+    participant FeedbackCard
+    participant FeedbackInput
+    participant AddTeamMemberModal
+    participant LocalStorage
+
+    App->LocalStorage: componentDidMount()
+    LocalStorage->>App: return teamMembers, feedbacks
+    App->TeamMemberList: render(teamMembers, selectedTeamMemberId)
+    TeamMemberList->TeamMemberCard: render(teamMember, isSelected, onSelect)
+    TeamMemberCard->App: onSelect(teamMemberId)
+    App->App: handleTeamMemberSelect(teamMemberId)
+    App->FeedbackList: render(feedbacks[selectedTeamMemberId])
+    FeedbackList->FeedbackCard: render(feedback)
+    App->FeedbackInput: render(selectedTeamMemberId, onSaveFeedback)
+    FeedbackInput->App: handleSaveClick(feedbackText)
+    App->App: handleSaveFeedback(feedbackText)
+    App->LocalStorage: saveFeedbacks(feedbacks)
+    App->AddTeamMemberModal: handleAddTeamMember(name, role)
+    App->LocalStorage: saveTeamMembers(teamMembers)
+    App->App: rerender()

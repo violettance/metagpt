@@ -1,0 +1,64 @@
+
+classDiagram
+    class App {
+        -teamMembers: array
+        -selectedTeamMemberId: string
+        -feedbacks: object
+        +componentDidMount()
+        +handleTeamMemberSelect(teamMemberId: string)
+        +handleSaveFeedback(feedbackText: string)
+        +handleAddTeamMember(name: string, role: string)
+        +render()
+    }
+    class TeamMemberList {
+        -teamMembers: array
+        -selectedTeamMemberId: string
+        +render()
+    }
+    class TeamMemberCard {
+        -teamMember: object
+        -isSelected: boolean
+        -onSelect: function
+        +render()
+    }
+    class FeedbackList {
+        -feedbacks: array
+        +render()
+    }
+    class FeedbackCard {
+        -feedback: object
+        +render()
+    }
+    class FeedbackInput {
+        -selectedTeamMemberId: string
+        -onSaveFeedback: function
+        +handleInputChange(event: object)
+        +handleSaveClick()
+        +render()
+    }
+    class AddTeamMemberModal {
+        -isOpen: boolean
+        -onClose: function
+        -onAdd: function
+        +handleNameChange(event: object)
+        +handleRoleChange(event: object)
+        +handleAddClick()
+        +render()
+    }
+    class LocalStorage {
+        +getTeamMembers(): array
+        +saveTeamMembers(teamMembers: array)
+        +getFeedbacks(): object
+        +saveFeedbacks(feedbacks: object)
+    }
+
+    App --> TeamMemberList: uses
+    TeamMemberList --> TeamMemberCard: renders
+    App --> FeedbackList: uses
+    FeedbackList --> FeedbackCard: renders
+    App --> FeedbackInput: uses
+    App --> AddTeamMemberModal: uses
+    TeamMemberCard --> App: calls handleTeamMemberSelect
+    FeedbackInput --> App: calls handleSaveFeedback
+    AddTeamMemberModal --> App: calls handleAddTeamMember
+    App --> LocalStorage: uses
