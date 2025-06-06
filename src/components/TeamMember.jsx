@@ -79,7 +79,7 @@ const TeamMember = ({ member, onSelect, isSelected, deleteTeamMember }) => {
       isSelected={isSelected}
     >
       <DeleteButton onClick={handleDelete}>×</DeleteButton>
-      <Avatar src={`/avatars/${member.avatar}`} alt={member.name} />
+      <Avatar src={`/assets/avatars/${member.avatar}`} alt={member.name} />
       <InfoContainer>
         <Name>{member.name}</Name>
         <Role>{member.role}</Role>

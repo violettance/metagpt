@@ -99,7 +99,7 @@ const FeedbackCard = ({ feedback, onDelete }) => {
     <CardContainer>
       <DeleteButton onClick={() => onDelete(feedback.id)}>×</DeleteButton>
       <Header>
-        <Avatar src={`/avatars/${feedback.avatar}`} alt={feedback.author} />
+        <Avatar src={`/assets/avatars/${feedback.avatar}`} alt={feedback.author} />
         <Author>{feedback.author}</Author>
       </Header>
       <Content>{feedback.text}</Content>
