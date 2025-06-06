@@ -1,3 +1,30 @@
-__pycache__
+node_modules/
+.venv*/
+temp_backup/
+.trash/
+.DS_Store
+*.log
+*.env
+# VSCode
+.vscode/
+# System files
+Thumbs.db
+# Build output
+/dist/
+/build/
+# Ignore workspace temp
+workspace/
+# Ignore Python cache
+__pycache__/
 *.pyc
+# Ignore backup and lock files
+*.lock
+# Ignore image assets in avatars and public/avatars
+avatars/*.png
+public/avatars/*.png
+# Ignore generated docs json
+/docs/prd/*.json
+/docs/system_design/*.json
+/docs/task/*.json
+# Existing ignores
 .vs
