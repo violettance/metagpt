@@ -1,2 +1,1 @@
-styled-components
 react
