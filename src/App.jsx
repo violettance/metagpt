@@ -16,6 +16,14 @@ const AppContainer = styled.div`
   min-height: 100vh;
   padding: 48px 80px;
   max-width: 1280px;
+
+  @media (max-width: ${props => props.theme.breakpoints.tablet}) {
+    padding: 24px 40px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 16px 20px;
+  }
   margin: 0 auto;
 `;
 

@@ -11,11 +11,21 @@ const SectionHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 `;
 
 const SectionTitle = styled.h2`
   font-size: ${props => props.theme.fontSizes.sectionTitle};
   font-weight: ${props => props.theme.fontWeights.medium};
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: ${props => props.theme.fontSizes.large};
+  }
 `;
 
 const AddButton = styled.button`
@@ -26,6 +36,11 @@ const AddButton = styled.button`
   padding: 10px 20px;
   font-size: 14px;
   cursor: pointer;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    width: 100%;
+    margin-top: 10px;
+  }
 `;
 
 const TeamMemberList = styled.div`

@@ -22,6 +22,10 @@ const ModalContainer = styled.div`
   border-radius: 12px;
   padding: ${props => props.theme.spacing.large};
   width: 500px;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: ${props => props.theme.spacing.medium};
+  }
   max-width: 90%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 `;
@@ -37,6 +41,10 @@ const ModalTitle = styled.h2`
   margin: 0;
   font-size: ${props => props.theme.fontSizes.large};
   font-weight: ${props => props.theme.fontWeights.medium};
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: ${props => props.theme.fontSizes.medium};
+  }
 `;
 
 const CloseButton = styled.button`
@@ -48,10 +56,16 @@ const CloseButton = styled.button`
 `;
 
 const FormTextarea = styled.textarea`
-  width: calc(100% - 24px);
+  width: calc(100% - 24px); /* Account for padding of parent */
   padding: 12px;
   font-size: ${props => props.theme.fontSizes.medium};
   border: 1px solid ${props => props.theme.colors.primary};
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 10px;
+    font-size: 14px;
+    width: calc(100% - 20px); /* Account for new padding */
+  }
   border-radius: 8px;
   margin-bottom: ${props => props.theme.spacing.large};
   background-color: ${props => props.theme.colors.primary};
@@ -69,6 +83,11 @@ const AddButton = styled.button`
   padding: 12px 24px;
   font-size: ${props => props.theme.fontSizes.medium};
   background-color: ${props => props.theme.colors.button};
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
   color: ${props => props.theme.colors.text};
   border: none;
   border-radius: 8px;
