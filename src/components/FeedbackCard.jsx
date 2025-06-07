@@ -12,6 +12,13 @@ const DeleteButton = styled.button`
   right: 10px;
   display: none;
   z-index: 10;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    display: block;
+    font-size: 20px;
+    top: 8px;
+    right: 8px;
+  }
 `;
 
 const CardContainer = styled.div`
@@ -20,8 +27,15 @@ const CardContainer = styled.div`
   border-radius: 12px;
   position: relative;
 
-  &:hover ${DeleteButton} {
-    display: block;
+  /* Show on hover for non-mobile */
+  @media (min-width: calc(${props => props.theme.breakpoints.mobile} + 1px)) {
+    &:hover ${DeleteButton} {
+      display: block;
+    }
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    padding: ${props => props.theme.spacing.medium};
   }
 `;
 
@@ -30,6 +44,10 @@ const Header = styled.div`
   align-items: center;
   gap: 12px;
   margin-bottom: ${props => props.theme.spacing.medium};
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    gap: ${props => props.theme.spacing.small};
+  }
 `;
 
 const AuthorInfo = styled.div`
@@ -47,6 +65,10 @@ const Avatar = styled.img`
 const Author = styled.div`
   font-weight: ${props => props.theme.fontWeights.medium};
   font-size: ${props => props.theme.fontSizes.cardTitle};
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 14px;
+  }
 `;
 
 const ForMember = styled.div`
@@ -59,6 +81,10 @@ const Content = styled.p`
   line-height: 1.6;
   margin: 0;
   color: ${props => props.theme.colors.textSecondary};
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    font-size: 14px;
+  }
 `;
 
 const Footer = styled.div`

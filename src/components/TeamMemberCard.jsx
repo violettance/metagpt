@@ -15,17 +15,29 @@ const CardContainer = styled.div`
     background-color: ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.text};
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding: 12px;
+  }
 `;
 
 const Name = styled.h3`
   margin: 0;
   font-size: ${(props) => props.theme.fontSizes.large};
   font-weight: ${(props) => props.theme.fontWeights.bold};
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    font-size: ${(props) => props.theme.fontSizes.medium};
+  }
 `;
 
 const Role = styled.p`
   margin: 0;
   font-size: ${(props) => props.theme.fontSizes.medium};
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    font-size: ${(props) => props.theme.fontSizes.small};
+  }
 `;
 
 /**
