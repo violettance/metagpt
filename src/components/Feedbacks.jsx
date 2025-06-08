@@ -158,12 +158,11 @@ const Feedbacks = ({
       window.localStorage.getItem("feedbacks") || "{}"
     );
 
-    if (!rawData || Object.keys(rawData).length === 0) {
+    const feedbackData = Object.values(rawData).flat();
+    if (!feedbackData.length) {
       alert("No feedback found to download.");
       return;
     }
-
-    const feedbackData = Object.values(rawData);
 
     if (format === "json") {
       const jsonString = JSON.stringify(feedbackData, null, 2);
